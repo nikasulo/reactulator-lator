@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-export class ButtonPanel extends React.Component {
+export const ButtonPanel = (props) => {
   renderButtons() {
     const groups = [
       ['AC', '+/-', '%', '+'],
@@ -24,11 +24,9 @@ export class ButtonPanel extends React.Component {
     }    
   }
   
-  render(){
     return(
       <div class = "button-panel row">
         {this.renderButtons}
       </div>
     )
-  }
 }
