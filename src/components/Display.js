@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const display = (props) => {
+export const Display = (props) => {
   return(
     <div className = 'calc-display'>
       <p>{props.result ? props.result : '0'}</p>

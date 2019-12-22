@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const button = (props) => {
+export const Button = (props) => {
   return (
-    <button onClick = {props.onClick}>
+    <button onClick = {props.onClick} className = {props.className}>
       {props.value}
     </button>
   )
