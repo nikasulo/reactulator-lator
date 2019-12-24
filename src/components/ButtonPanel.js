@@ -1,21 +1,6 @@
 import React from "react";
 import {Button} from "./Button";
 
-const buttonStyle = {
-  backgroundColor: "#95a5a6",
-  color: "#000"
-}
-
-const zeroButtonStyle = {
-  ...buttonStyle
-}
-
-
-const orangeButtonStyle = {
-  ...buttonStyle,
-  backgroundColor: "#f39c12"
-}
-
 export const ButtonPanel = (props) => {
   
   const renderButtons = () => {
@@ -32,10 +17,10 @@ export const ButtonPanel = (props) => {
       let [a,b,c,d] = group;
       return (
         <div >
-          <Button value={a} style={a === 0 ? zeroButtonStyle : buttonStyle}/>
-          <Button value={b} style={buttonStyle}/>
-          <Button value={c} style={d ? buttonStyle : orangeButtonStyle} />
-          {d && <Button value={d} style={orangeButtonStyle}/>}
+          <Button value={a} wide={a === '0' ? true : false} backgroundColor = "#EEE"/>
+          <Button value={b} backgroundColor = "#EEE"/>
+          <Button value={c} backgroundColor = {d && "#EEE"} />
+          {d && <Button value={d}/>}
         </div>
       )
     })

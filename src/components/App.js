@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {ButtonPanel} from './ButtonPanel';
 import {Display} from './Display';
+import '../stylesheets/main.scss';
 
 const calcStyles = {
   width: '700px',
