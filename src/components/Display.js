@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Display = (props) => {
-  
+export const Display = (props) => { 
   return(
     <div className = 'calc-display'>
       <p>{props.result}</p>
@@ -14,6 +13,6 @@ Display.propTypes = {
   result: PropTypes.string
 }
 
-Display.defalutProps = {
+Display.defaultProps = {
   result: '0'
 }
