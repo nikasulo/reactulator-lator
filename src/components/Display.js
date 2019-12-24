@@ -1,9 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Display = (props) => {
+  
   return(
     <div className = 'calc-display'>
-      <p>{props.result ? props.result : '0'}</p>
+      <p>{props.result}</p>
     </div>
   )
+}
+
+Display.propTypes = {
+  result: PropTypes.string
+}
+
+Display.defalutProps = {
+  result: '0'
 }
