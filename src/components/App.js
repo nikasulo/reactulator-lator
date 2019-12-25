@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {ButtonPanel} from './ButtonPanel';
 import {Display} from './Display';
+import {calculate} from '../logic/calculate';
 import '../stylesheets/main.scss';
 
 const calcStyles = {
