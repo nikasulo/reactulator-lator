@@ -10,9 +10,11 @@ const calcStyles = {
 
 export const App = (props) => {
   return(
-    <div id="calculator-holder" style={calcStyles}>
-      <Display />
-      <ButtonPanel />
+    <div className="calculator-holder column" style={calcStyles}>
+      <div>
+        <Display />
+        <ButtonPanel />
+      </div>
     </div>
   )
 }

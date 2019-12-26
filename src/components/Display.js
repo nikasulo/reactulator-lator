@@ -8,11 +8,10 @@ const displayStyles = {
   color: '#FFF',
   fontWeight: 'bold',
   padding: '1em .5em',
-  textAlign: 'right'
 }
 
 export const Display = (props) =>
-  <div className="calc-display" style={displayStyles}>
+  <div className="calc-display row" style={displayStyles}>
     <p>{props.result}</p>
   </div>
 

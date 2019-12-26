@@ -16,7 +16,7 @@ export const ButtonPanel = (props) => {
     buttons = groups.map((group) => {
       let [a,b,c,d] = group;
       return (
-        <div >
+        <div>
           <Button value={a} wide={a === '0' ? true : false} backgroundColor = "#EEE"/>
           <Button value={b} backgroundColor = "#EEE"/>
           <Button value={c} backgroundColor = {d && "#EEE"} />
@@ -29,7 +29,7 @@ export const ButtonPanel = (props) => {
   }
   
     return(
-      <div className = "button-panel row">
+      <div className = "button-panel column">
         {renderButtons()}
       </div>
     )
