@@ -31,7 +31,7 @@ export const ButtonPanel = (props) => {
   }
   
     return(
-      <div className = "button-panel row">
+      <div className = "button-panel column">
         {renderButtons()}
       </div>
     )
