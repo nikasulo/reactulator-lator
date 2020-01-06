@@ -13,7 +13,7 @@ const displayStyles = {
 
 export const Display = (props) =>
   <div className="calc-display" style={displayStyles}>
-    <p>{props.result}</p>
+    <p>{props.result || 0}</p>
   </div>
 
 Display.propTypes = {
