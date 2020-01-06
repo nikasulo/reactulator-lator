@@ -8,7 +8,6 @@ const displayStyles = {
   color: '#FFF',
   fontWeight: 'bold',
   padding: '1em .5em',
-  textAlign: 'right'
 }
 
 export const Display = (props) =>
