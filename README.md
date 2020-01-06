@@ -13,7 +13,7 @@ It displays my skills in using JS(ES6) and configuring webpack to handle several
 
 ## Live Demo
 
-[Live Demo](https://raw.githack.com/Oluwadamilareolusakin/javascript-to-do-list/list/dist/index.html)
+[Live Demo](https://reactulator-io.herokuapp.com)
 
 ## Getting Started
 
