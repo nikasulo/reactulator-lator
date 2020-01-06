@@ -13,6 +13,9 @@ export const operate = (numberOne, numberTwo, operation) => {
   }
 
   if(operation === '/'){
+    if ((numberOne === 0 && numberTwo === 0 ) || numberTwo) {
+      return 'UNDEFINED';
+    }
     return numberOne.div(numberTwo);
   }
 

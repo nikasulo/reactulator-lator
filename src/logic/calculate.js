@@ -26,6 +26,9 @@ export const calculate = (dataObj, buttonName) => {
         operator = operation.pop();
         result = operate(parseInt(numberOne), parseInt(numberTwo), operator);
         //Push the result so multiple operations can happen
+        if (result === 'UNDEFINED'){
+          return result;
+        }
         next.push(result);
         total = ans ? parseInt(ans) + result : result;
       }
@@ -56,6 +59,12 @@ export const calculate = (dataObj, buttonName) => {
     }
   // If button is not an operator
   } else {
+    if(`${total}` === displayText){
+      next = null;
+      displayText = null;
+      total = null;
+      operation = null;
+    }
     //If operands and operators are the same amount, start a new number
     if (operation && operation.length === next.length){
       next.push(buttonName);

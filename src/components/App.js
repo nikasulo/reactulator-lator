@@ -22,8 +22,18 @@ export class App extends React.Component{
   handleClick = (buttonName) => {
     let result, currentData;
     currentData = this.state;
+
+    
     result = calculate(currentData, buttonName);
-    console.log(result)
+    if (result === 'UNDEFINED'){
+      this.setState({
+        total: null,
+        next: null,
+        operation: null,
+        displayText: NaN,
+      })
+      return;
+    }
     this.setState(
       {
         total: result.total,
