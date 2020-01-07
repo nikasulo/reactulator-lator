@@ -1,5 +1,6 @@
 @import './fontawesome//scss/solid.scss';
 @import './fontawesome/scss/fontawesome.scss';
+@import url('https://fonts.googleapis.com/css?family=Dosis|Fira+Code&display=swap');
 
 * {
   margin: 0;
@@ -30,6 +31,7 @@ header{
 
   h2{
     color: rgb(0, 195, 255);
+    font-family: 'Dosis', sans-serif;
   }
 
   .nav-left{
@@ -47,6 +49,7 @@ header{
       color: grey;
       cursor: pointer;
       transition: .5s;
+      font-family: 'Fira Code', monospace;
 
       &:hover{
         color: rgb(175, 175, 175);
@@ -68,6 +71,7 @@ header{
 footer{
   position: absolute;
   bottom: 0;
+  font-family: 'Fira Code', monospace;
   padding: .5em 0;
 }
 
