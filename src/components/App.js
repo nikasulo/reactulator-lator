@@ -3,9 +3,11 @@ import ButtonPanel from './ButtonPanel';
 import Display from './Display';
 import calculate from '../logic/calculate';
 import '../stylesheets/main.scss';
+import Footer from './Footer';
+import Header from './Header';
 
 const calcStyles = {
-  width: '700px',
+  width: '500px',
 };
 
 export default class App extends React.Component {
@@ -61,10 +63,16 @@ export default class App extends React.Component {
     const { displayText } = this.state;
 
     return (
-      <div id="calculator-holder column" style={calcStyles}>
-        <Display result={displayText} />
-        <ButtonPanel clickHandler={this.handleClick} />
-      </div>
+      <>
+        <Header />
+        <div className="column main">
+          <div id="calculator-holder column" style={calcStyles}>
+            <Display result={displayText} />
+            <ButtonPanel clickHandler={this.handleClick} />
+          </div>
+          <Footer />
+        </div>
+      </>
     );
   }
 }

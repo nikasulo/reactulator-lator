@@ -13,7 +13,7 @@ export default function Button(props) {
     backgroundColor,
     width,
     color: '#000',
-    height: '100px',
+    height: '70px',
     border: '.5px solid #BBB',
   };
 
