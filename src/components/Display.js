@@ -8,17 +8,21 @@ const displayStyles = {
   color: '#FFF',
   fontWeight: 'bold',
   padding: '1em .5em',
-}
+};
 
-export const Display = (props) =>
-  <div className="calc-display row" style={displayStyles}>
-    <p>{props.result}</p>
-  </div>
+export default function Display(props) {
+  const { result } = props;
+  return (
+    <div className="calc-display row" style={displayStyles}>
+      <p>{result || 0}</p>
+    </div>
+  );
+}
 
 Display.propTypes = {
-  result: PropTypes.string
-}
+  result: PropTypes.string,
+};
 
 Display.defaultProps = {
-  result: '0'
-}
+  result: '0',
+};

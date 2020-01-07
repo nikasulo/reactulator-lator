@@ -1,26 +1,33 @@
 const Big = require('big.js');
 
-export const operate = (numberOne, numberTwo, operation) => {
-  numberOne = new Big(numberOne);
-  numberTwo = new Big(numberTwo);
+export default (numberOne, numberTwo, operation) => {
+  const firstNumber = new Big(numberOne);
+  const secondNumber = new Big(numberTwo);
+  let result;
 
-  if(operation === '+'){
-    return numberOne.plus(numberTwo)
+  if (operation === '+') {
+    result = firstNumber.plus(secondNumber);
   }
 
-  if(operation === '-'){
-    return numberOne.minus(numberTwo);
+  if (operation === '-') {
+    result = firstNumber.minus(secondNumber);
   }
 
-  if(operation === '/'){
-    return numberOne.div(numberTwo);
+  if (operation === '/') {
+    if ((firstNumber === 0 && secondNumber === 0) || secondNumber) {
+      result = 'UNDEFINED';
+    } else {
+      result = firstNumber.div(secondNumber);
+    }
   }
 
-  if(operation === '*'){
-    return numberOne.times(numberTwo);
+  if (operation === '*') {
+    result = firstNumber.times(secondNumber);
   }
 
-  if(operation === '%'){
-    return numberOne.mod(numberTwo);
+  if (operation === '%') {
+    result = firstNumber.mod(secondNumber);
   }
-}
+
+  return result;
+};

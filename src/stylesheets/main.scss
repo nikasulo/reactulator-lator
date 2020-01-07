@@ -1,3 +1,7 @@
+@import './fontawesome//scss/solid.scss';
+@import './fontawesome/scss/fontawesome.scss';
+@import url('https://fonts.googleapis.com/css?family=Dosis|Fira+Code&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +15,76 @@
 
 .column{
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column nowrap;   
+}
+
+header{
+  position: absolute;
+  top: 0;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 5px .5px rgba(0, 0, 0, 0.52);
+
+  justify-content: space-between;
+  padding: 1em 2em;
+
+  h2{
+    color: rgb(0, 195, 255);
+    font-family: 'Dosis', sans-serif;
+  }
+
+  .nav-left{
+    width: 50%;
+  }
+
+  .nav-right{
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+
+    a{
+      margin-right: 1em;
+      text-decoration: none;
+      color: grey;
+      cursor: pointer;
+      transition: .5s;
+      font-family: 'Fira Code', monospace;
+
+      &:hover{
+        color: rgb(175, 175, 175);
+      }
+    }
+  }
 }
 
 .calc-display{
   justify-content: flex-end;
+}
+
+.calculator-holder{
+  font-family: 'Dosis', sans-serif;
+}
+
+.main{
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  font-family: 'Fira Code', monospace;
+  padding: .5em 0;
+}
+
+.heart{
+  @extend %fa-icon;
+  @extend .fas;
+  color: red;
+
+  &:before{
+    content: fa-content($fa-var-heart);
+  }
 }
