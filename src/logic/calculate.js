@@ -1,88 +1,87 @@
-import { operate } from "./operate";
+import operate from './operate';
 
-export const calculate = (dataObj, buttonName) => {
-  let {next, total, operation, displayText} = dataObj;
+export default function (dataObj, buttonName) {
+  let {
+    next, total, operation, displayText,
+  } = dataObj;
 
-  if (buttonName === 'AC'){
+  if (buttonName === 'AC') {
     return {
       total: null,
       next: null,
       operation: null,
-      displayText: ''
-    }
+      displayText: '',
+    };
   }
 
-  if (buttonName === '='){
-    if(next && operation && (next.length - operation.length === 1)){
-      //flip operators and operands so you can deal with the operations in FIFO manner
+  if (buttonName === '=') {
+    if (next && operation && (next.length - operation.length === 1)) {
+      // flip operators and operands so you can deal with the operations in FIFO manner
       next = next.reverse();
       operation = operation.reverse();
 
-      //If there's more than one operand, operate
-      while(next.length > 1){
-        let numberOne, numberTwo, operator, result, ans;
-        numberOne = next.pop();
-        numberTwo = next.pop();
-        operator = operation.pop();
-        result = operate(parseInt(numberOne), parseInt(numberTwo), operator);
-        //Push the result so multiple operations can happen
-        if (result === 'UNDEFINED'){
+      // If there's more than one operand, operate
+      while (next.length > 1) {
+        let ans;
+        const numberOne = next.pop();
+        const numberTwo = next.pop();
+        const operator = operation.pop();
+        const result = operate(parseInt(numberOne, 10), parseInt(numberTwo, 10), operator);
+        // Push the result so multiple operations can happen
+        if (result === 'UNDEFINED') {
           return result;
         }
         next.push(result);
-        total = ans ? parseInt(ans) + result : result;
+        total = ans ? parseInt(ans, 10) + result : result;
       }
 
-      return{
+      return {
         total,
         next: [total],
         operation: null,
-        displayText: `${total}`
-      }
+        displayText: `${total}`,
+      };
     }
-    return dataObj; 
+    return dataObj;
   }
 
-  //If button is an operator
-  if (['+','/','*','%','-'].includes(buttonName)){
-    //If operands exist
-    if (next){
-      if (operation){
-        if(operation.length < next.length){
+  // If button is an operator
+  if (['+', '/', '*', '%', '-'].includes(buttonName)) {
+    // If operands exist
+    if (next) {
+      if (operation) {
+        if (operation.length < next.length) {
           operation.push(buttonName);
-          displayText = `${displayText}${buttonName}`
+          displayText = `${displayText}${buttonName}`;
         }
       } else {
         operation = [buttonName];
-        displayText = `${displayText}${buttonName}`
+        displayText = `${displayText}${buttonName}`;
       }
     }
   // If button is not an operator
   } else {
-    if(`${total}` === displayText){
+    if (`${total}` === displayText) {
       next = null;
       displayText = null;
       total = null;
       operation = null;
     }
-    //If operands and operators are the same amount, start a new number
-    if (operation && operation.length === next.length){
+    // If operands and operators are the same amount, start a new number
+    if (operation && operation.length === next.length) {
       next.push(buttonName);
+    } else if (next) {
+      next[next.length - 1] = `${next[next.length - 1]}${buttonName}`;
     } else {
-      if(next){
-        next[next.length - 1] = `${next[next.length-1]}${buttonName}`;
-      } else {
-        next = [buttonName];
-      }
+      next = [buttonName];
     }
-    displayText = displayText ? `${displayText}${buttonName}` : `${buttonName}`
+    displayText = displayText ? `${displayText}${buttonName}` : `${buttonName}`;
   }
 
   return {
     total,
     next,
     operation,
-    displayText
-  }
-
+    displayText,
+  };
 }
